@@ -1,0 +1,249 @@
+/*
+{
+    "$schema": null,
+    "logo": {
+        "source": "$(fastfetch.sh logo)",
+        "height": 18,
+        "padding": {
+            "top": 3,
+            "left": 3,
+            "right": 14
+        }
+    },
+    "display": {
+        "color": {
+            "separator": "blue"
+        },
+        "separator": " : ",  
+    },
+    "modules": [
+        {
+            "type": "custom",
+            "format": "\n",  // <-- adds vertical padding above info
+        },
+        {
+            "type": "command",
+            "key": "     User@cachy  ",
+            "keyColor": "blue",
+            "text": "echo 'Hello there!'"
+        },
+        {
+            "type": "custom",
+            "format": "┌──────────────────────────────────────────────────────────┐",
+            "outputColor": "blue"
+
+        },
+
+        {
+            "type": "os",
+            "key": "    󰣇 OS          ",
+            "format": "{2}",
+            "keyColor": "green"
+        },
+        {
+            "type": "kernel",
+            "key": "     Kernel      ",
+            "format": "{2}",
+            "keyColor": "green"
+        },
+        {
+            "type": "packages",
+            "key": "    󰏗 Packages    ",
+            "keyColor": "green"
+        },
+
+        {
+            "type": "terminal",
+            "key": "     Terminal    ",
+            "keyColor": "green"
+        },
+        {
+            "type": "wm",
+            "key": "    󱗃 WM          ",
+            "format": "{2}",
+            "keyColor": "green"
+        },
+
+        {
+            "type": "custom",
+            "format": "└──────────────────────────────────────────────────────────┘"
+        },
+        "break",
+
+        {
+            "type": "custom",
+            "format": "┌──────────────────────────────────────────────────────────┐"
+        },
+
+        {
+            "type": "cpu",
+            "format": "{1} @ {7}",
+            "key": "     CPU         ",
+            "keyColor": "green"
+        },
+        {
+            "type": "gpu",
+            "format": "{1} {2}",
+
+            "key": "    󰊴 GPU         ",
+            "keyColor": "green"
+        },
+
+        {
+            "type": "memory",
+            "key": "     Memory      ",
+            "keyColor": "green"
+        },
+        {
+            "type": "command",
+            "key": "    󱦟 OS Age      ",
+            "keyColor": "green",
+            "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
+        },
+        {
+            "type": "uptime",
+            "key": "    󱫐 Uptime      ",
+            "keyColor": "green"
+        },
+        {
+            "type": "custom",
+            "format": "└──────────────────────────────────────────────────────────┘"
+        },
+        "break",
+        {
+            "type": "colors",
+            "paddingLeft": 12
+        },
+        {
+            "type": "custom",
+            "format": "\n\n",  // <-- adds vertical padding below info
+        }
+    ]
+}
+
+
+*/
+//config2
+{
+  "$schema": null,
+  "logo": {
+    "source": "~/.config/fastfetch/logo/frieren.png", //"$(fastfetch.sh logo)",
+    "height": 16,
+    "padding": {
+      "top": 3,
+      "left": 1
+      //  "right": 12,
+      //  "bottom": 4
+    },
+    //        "source": "arch3",
+    "color": {
+      "1": "blue"
+    }
+  },
+  "display": {
+    "color": {
+      "separator": "blue"
+    },
+    "separator": " | ",
+    "constants": [
+      ">-----------<+>---------------------------------------------<"
+    ]
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "format": "\n\n\n", // <-- adds vertical padding above info
+      "outputColor": "separator"
+    },
+    {
+      "type": "kernel",
+      "key": " /\\rch Linux",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "custom",
+      "format": "{$1}",
+      "outputColor": "separator"
+    },
+    {
+      "type": "uptime",
+      "key": "   Uptime   ",
+      "keyColor": "green"
+    },
+    {
+      "type": "shell",
+      "key": "   Shell    ",
+      "keyColor": "green"
+    },
+    {
+      "type": "terminal",
+      "key": "   Terminal ",
+      "keyColor": "green"
+    },
+    {
+      "type": "terminalfont",
+      "key": "   Font     ",
+      "keyColor": "green"
+    },
+    {
+      "type": "packages",
+      "key": "   Packages ",
+      "keyColor": "green"
+    },
+    {
+      "type": "custom",
+      "format": "{$1}",
+      "outputColor": "separator"
+    },
+    {
+      "type": "display",
+      "key": "   Display  ",
+      "keyColor": "cyan"
+    },
+    {
+      "type": "cpu",
+      "key": "   CPU      ",
+      "keyColor": "cyan"
+    },
+    {
+      "type": "gpu",
+      "key": "   GPU      ",
+      "keyColor": "cyan"
+    },
+    {
+      "type": "memory",
+      "key": "   RAM      ",
+      "keyColor": "cyan"
+    },
+    //       {
+    //           "type": "swap",
+    //           "key": "   SWAP     ",
+    //           "keyColor": "cyan"
+    //       },
+    {
+      "type": "disk",
+      "key": "   Disk     ",
+      "keyColor": "cyan"
+    },
+    {
+      "type": "battery",
+      "key": "   Battery  ",
+      "keyColor": "cyan"
+    },
+    {
+      "type": "custom",
+      "format": "{$1}",
+      "outputColor": "separator"
+    },
+    "break",
+    {
+      "type": "colors",
+      "paddingLeft": 15
+    },
+    {
+      "type": "custom",
+      "format": "\n\n", // <-- adds vertical padding below info
+      "outputColor": "separator"
+    }
+  ]
+}

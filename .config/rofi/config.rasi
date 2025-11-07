@@ -1,0 +1,93 @@
+* {
+    /* Colors */
+    bg: #202020;
+    fg: #ffffff; 
+    accent: #404040;
+    nord: #81a1c1;
+}
+
+
+
+configuration {
+    font: "Iosevka 12";
+    display-drun: "(੭˃ᴗ˂)੭ ";
+    drun-display-format: "{name}";
+    drun-match-fields: "name";
+}
+
+entry {
+    placeholder: "type here";
+    placeholder-color: @fg;
+    cursor-color: @nord;
+    cursor-width: 2px;
+    text-color: @fg;
+    hide-cursor-on-empty: true;
+}
+
+window {
+    background-color:		 rgba(26, 27, 38, 0.9);
+    border-color:  		 @accent;
+    width:                       380px;
+    height:                      480px;
+    border:			 3px;
+    border-radius:               3px;
+    padding:			 15px;
+
+}
+
+listview {
+    border: 0;
+    padding: 10px 0;
+    spacing: 3px;
+    scrollbar: true;
+}
+
+/* scrollbar width and height */
+scrollbar {
+    background-color: transparent; 
+    handle-color: @nord; 
+    handle-width: 5px;
+}
+
+element {
+  border: 0;
+  text-color: white;
+}
+
+element-text {
+  highlight: bold #81a1c1;
+
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: white;
+}
+
+
+element selected.normal {
+    background-color: transparent;
+    text-color: @nord;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: white;
+}
+
+
+element-icon {
+  size: 1.0em;
+
+}
+
+prompt {
+  text-color: @nord;
+}
+
+
+textbox-prompt-colon {
+    expand: false;
+    str: "";
+    text-color: @nord;
+}

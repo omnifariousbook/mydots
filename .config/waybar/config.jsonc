@@ -1,0 +1,273 @@
+[
+  {
+    "height": 40,
+    "spacing": 5,
+    "modules-left": [
+      "group/Utilities",
+      "group/cpuram",
+      "group/workspaces",
+      "mpris"
+    ],
+    "modules-center": [
+      "group/windows"
+    ],
+    "modules-right": [
+      "group/battery",
+      "group/brightvol",
+      "group/system"
+    ],
+    "custom/openbracket": {
+      "format": "[",
+      "tooltip": false
+    },
+    "custom/closebracket": {
+      "format": "]",
+      "tooltip": false
+    },
+    "custom/split": {
+      "format": "|",
+      "tooltip": false
+    },
+    "group/Utilities": {
+      "orientation": "horizontal",
+      "modules": [
+        "custom/openbracket",
+        "power-profiles-daemon",
+        "custom/arch",
+        "idle_inhibitor",
+        "custom/closebracket"
+      ]
+    },
+    "custom/arch": {
+      "format": "󰣇 ",
+      "tooltip": false,
+      "on-click": "pkill rofi || rofi -show drun -run-command 'uwsm app -- {cmd}'"
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": " ",
+        "performance": " ",
+        "balanced": "  ",
+        "power-saver": "  "
+      }
+    },
+    "custom/themeswitcher": {
+      "format": "",
+      "tooltip": true,
+      "tooltip-format": "Click to change theme",
+      "on-click": "~/.config/waybar/scripts/theme-switcher.sh next",
+      "on-click-right": "~/.config/scripts/theme-switcher.sh random"
+    },
+    "group/workspaces": {
+      "orientation": "horizontal",
+      "modules": [
+        "custom/openbracket",
+        "hyprland/workspaces",
+        "custom/closebracket"
+      ]
+    },
+    "hyprland/workspaces": {
+      "format": "{name}",
+      "persistent-workspaces": {
+        "*": 3 // 3 workspaces by default on every monitor
+      }
+    },
+    "mpris": {
+      "format": "[   {status_icon} | {dynamic} ]",
+      "dynamic-len": 40,
+      "status-icons": {
+        "playing": "▶",
+        "paused": "⏸",
+        "stopped": ""
+      },
+      "dynamic-order": [
+        "artist"
+      ]
+    },
+    "hyprland/window": {
+      "format": "[ {class} ]",
+      "rewrite": {
+        "\\[  \\]": " („• ֊ •„)੭ "
+      },
+      "max-length": 20,
+      "min-length": 0,
+      "all-outputs": true
+    },
+    "group/windows": {
+      "orientation": "horizontal",
+      "modules": [
+        "hyprland/window"
+      ]
+    },
+    "group/cpuram": {
+      "orientation": "horizontal",
+      "modules": [
+        "custom/openbracket",
+        "cpu",
+        "custom/split",
+        "memory",
+        "custom/closebracket"
+      ]
+    },
+    "cpu": {
+      "format": "CPU:{usage}%",
+      "tooltip": false,
+      "interval": 2,
+      "on-click": "kitty -e btop"
+    },
+    "memory": {
+      "format": "RAM:{}%",
+      "tooltip": false,
+      "interval": 2,
+      "on-click": "kitty -e btop"
+    },
+    "group/brightvol": {
+      "orientation": "horizontal",
+      "modules": [
+        "custom/openbracket",
+        "backlight",
+        "custom/split",
+        "wireplumber",
+        "custom/closebracket"
+      ]
+    },
+    "wireplumber": {
+      "scroll-step": 5,
+      "format": "{icon}{volume}%",
+      "format-bluetooth": "{icon}{volume}% ",
+      "format-bluetooth-muted": " {icon}",
+      "format-muted": "    ",
+      "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": [
+          " :",
+          " :",
+          " :"
+        ]
+      },
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+      "on-click-right": "pavucontrol"
+    },
+    "backlight": {
+      "format": "{icon}:{percent}%",
+      "format-icons": [
+        " ",
+        " ",
+        "🌙 "
+      ]
+    },
+    "group/battery": {
+      "orientation": "horizontal",
+      "modules": [
+        "custom/openbracket",
+        "battery",
+        "custom/closebracket"
+      ]
+    },
+    "group/system": {
+      "orientation": "horizontal",
+      "modules": [
+        "custom/openbracket",
+        "clock",
+        "custom/split",
+        "network",
+        "custom/bluetooth",
+        "custom/swaync",
+        "custom/closebracket"
+      ]
+    },
+    "clock": {
+      "format": "{:%I:%M %d-%m}",
+      "tooltip": false
+    },
+    "custom/clipboard": {
+      "format": "",
+      "tooltip": false,
+      "on-click": "~/.config/waybar/scripts/clipboard_menu.sh"
+    },
+    "battery": {
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": " {capacity}% {icon} ",
+      "format-full": "{capacity}% {icon}",
+      "format-charging": "{capacity}% ",
+      "format-plugged": " {capacity}%  ",
+      "format-icons": [
+        " ",
+        " ",
+        " ",
+        " ",
+        " "
+      ]
+    },
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "",
+        "deactivated": ""
+      }
+    },
+    "custom/swaync": {
+      "format": "",
+      "tooltip": false,
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client --toggle-panel",
+      "interval": 0
+    },
+    "network": {
+      "interface": "wlo1",
+      "format-wifi": "{icon}",
+      "format-ethernet": "󰈀 LAN",
+      "format-disconnected": "󰖪",
+      "tooltip-format": "{ipaddr}\n{essid} ({signalStrength}%)",
+      "on-click": "kitty -e nmtui",
+      "format-icons": [
+        "󰤯",
+        "󰤟",
+        "󰤢",
+        "󰤥",
+        "󰤨"
+      ]
+    },
+    "custom/bluetooth": {
+      "format": "{}",
+      "exec": "~/.config/waybar/scripts/bluetooth_status.sh",
+      "tooltip": false,
+      "interval": 5,
+      "on-click": "pkill blueman-manager || uwsm app -- blueman-manager"
+    },
+    "group/clock": {
+      "orientation": "horizontal",
+      "modules": [
+        "custom/openbracket",
+        "clock",
+        "custom/closebracket"
+      ]
+    },
+    "custom/cava": {
+      "exec": "~/.config/waybar/scripts/cava_wrapper.sh",
+      "format": "♪ {}",
+      "restart-interval": 1,
+      "max-length": 50,
+      "on-click": "pkill cava"
+    },
+    "tray": {
+      "icon-size": 14,
+      "spacing": 10
+    },
+    "custom/notifications": {
+      "format": "",
+      "tooltip": false
+    }
+  }
+]
