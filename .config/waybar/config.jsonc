@@ -4,7 +4,6 @@
     "spacing": 5,
     "modules-left": [
       "group/Utilities",
-      "group/cpuram",
       "group/workspaces",
       "mpris"
     ],
