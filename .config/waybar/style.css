@@ -41,7 +41,7 @@ window#waybar.empty #window {
 /* configuring the modules */
 .modules-left {
   margin: 5px 0 5px 5px;
-  padding: 0 0px 0 10px;
+  padding: 0 10px 0 10px;
   background-color: rgba(26, 27, 38, 0.9);
   border: 2px solid @focused;
 }
@@ -121,18 +121,18 @@ button {
 
 /* media player */
 #mpris {
-  margin: 0 10px 0 5px;
+  margin: 0 0px 0 5px;
   padding: 0 5px 0 0px;
   background-color: @background;
   color: @text;
 }
 
 #mpris.playing {
-  background-color: @color3;
+  background-color: transparent;
   border-radius: 0px;
   margin: 0;
-  padding: 0 15px 0 15px;
-  color: @background;
+  padding: 0 5px 0 5px;
+  color: @color3;
 }
 
 
