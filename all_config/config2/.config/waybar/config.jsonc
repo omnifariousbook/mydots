@@ -1,0 +1,88 @@
+{
+    // General Settings
+    "reload_style_on_change": true,
+    "layer": "top",
+    "position": "top",
+    "include": [
+        "~/.config/waybar/modules.json"
+    ],
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": "",
+            "empty": ""
+        },
+        "persistent-workspaces": {
+            "*": [ 1,2,3,4,5 ]
+        }
+    },
+    "custom/expand": {
+        "format": "",
+        "tooltip": false
+    },
+
+    "group/expand": {
+        "orientation": "horizontal",
+        "drawer": {
+          "transition-duration": 200,
+          "transition-to-left": true,
+          "click-to-reveal": true,
+          "children-class": "tray-group-item"
+        },
+        "modules": ["custom/expand", "tray"]
+    },
+
+    "group/rightexpander": {
+      "orientation": "horizontal",
+      "drawer": {
+        "transition-duration": 200,
+        "click-to-reveal": true,
+        "children-class": "tray-group-item"
+
+      },
+      "modules": [
+          "custom/expandright",
+          "idle_inhibitor",
+          "power-profiles-daemon",
+          "bluetooth",
+          "memory",
+          "cpu",
+          "wireplumber#source",
+          "custom/line"
+      ]
+    },
+
+    "custom/expandright": {
+      "format": "",
+      "tooltip": false
+    },
+    
+    "custom/line": {
+      "format": "|",
+      "tooltip": false
+    },
+
+    // Modules Left
+    "modules-left": [
+        "clock",
+        "group/expand",
+    ],
+
+    // Modules Center
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+
+    // Modules Right
+    "modules-right": [
+        "group/rightexpander",
+        "pulseaudio",
+        "backlight",
+        "network",
+        "custom/exit",
+        "battery",
+        "custom/notification"
+    ]
+}
