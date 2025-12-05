@@ -1,0 +1,20 @@
+#! /usr/bin/python3
+import os
+
+path = "/home/reader/Downloads"
+
+pictures = [".png", ".jpg", ".jpeg"]
+documents = [".docx", "pptx", ".pdf", "txt"]
+videos = [".mp4", ".mov", ".mkv"]
+all_ext = pictures + documents + videos
+i = os.listdir(path)
+
+for file in i:
+    file = file.replace(" ", "\\ ")
+    for extension in all_ext:
+        if extension in file and extension in pictures:
+            os.system(f"mv {path}/{file} ~/Pictures")
+        elif extension in file and extension in documents:
+            os.system(f"mv {path}/{file} ~/Documents")
+        elif extension in file and extension in videos:
+            os.system(f"mv {path}/{file} ~/Videos")
