@@ -1,0 +1,182 @@
+{
+ // Hypridle
+  "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+          "activated": "",
+          "deactivated": ""
+      }
+  },
+
+ // Notification Center
+  "custom/notification": {
+    "tooltip": false,
+    "format": "",
+    "on-click": "swaync-client -t -sw",
+    "escape": true
+},
+
+ // Exit
+  "custom/exit": {
+    "format": "",
+    "tooltip-format": "Exit menu",
+    "on-click": "wlogout -b 2" // -b 2 is to remove the two empty button that we don't use
+  },
+  // Clock
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "format-alt": "{:%d %B %Y}",
+    "tooltip": false
+  },
+  // CPU
+  "cpu": {
+    "interval": 5,
+    "format": "",
+    "on-click": "kitty -e btop"
+  },
+  "memory": {
+      "interval": 30,
+      "format": "",
+      "tooltip-format": "{used:0.1f}G/{total:0.1f}G ",
+      "max-length": 10,
+      "on-click": "kitty -e btop"
+  },
+
+  // Pulseaudio
+  "pulseaudio": {
+    "scroll-step": 1,
+    "format": "{icon}",
+    "on-click": "swayosd-client --output-volume mute-toggle",
+    "on-click-right": "kitty --class=local.wiremix -e wiremix",
+    "tooltip-format": "Playing at {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  // Bluetooth
+  "bluetooth": {
+    // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+    "format": "",
+    "format-disabled": "󰂲", // an empty format will hide the module
+    "format-connected": "| {num_connections} connected|",
+    "tooltip-format": "{controller_alias}\t{controller_address}\nStatus: {status}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-disabled": "{controller_alias}\t{controller_address}\nStatus: {status}\nRight click to open blueman",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "kitty --class=local.bluetui -e bluetui",
+    "on-click-right": "blueman-manager"
+  },
+  // Battery
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-discharging": "{icon}",
+    "format-charging": "{icon}",
+    "format-plugged": "",
+    "format-icons": {
+      "charging": [
+        "󰢜",
+        "󰂆",
+        "󰂇",
+        "󰂈",
+        "󰢝",
+        "󰂉",
+        "󰢞",
+        "󰂊",
+        "󰂋",
+        "󰂅"
+      ],
+      "default": [
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ]
+    },
+    "format-full": "󰂅",
+    "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
+    "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
+    "interval": 5,
+    "states": {
+      "warning": 20,
+      "critical": 10
+    }
+  },
+  // Network
+  "network": {
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "format": "{icon}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰤮",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 3,
+    "spacing": 1,
+    "on-click": "kitty --class=local.nettui -e nettui" // nettui can be found in .config/scripts
+  },
+  // Quicklinks
+//  "custom/brightness": {
+//    "format": "",
+//    "on-click": "walker --theme menus -m menus:brightness --width 50 --maxwidth 50"
+//  },
+
+  "backlight": {
+    // "device": "acpi_video1",
+    "format": "{icon}",
+    "tooltip-format": "brightness level: {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
+  },
+  // Tray
+  "tray": {
+    // "icon-size": 21,
+    "spacing": 17,
+    // "icons": {
+    //   "blueman": "bluetooth",
+    //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+    // }
+  },
+
+  "power-profiles-daemon": {
+  "format": "{icon}",
+  "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+  "tooltip": true,
+  "format-icons": {
+    "default": "",
+    "performance": "",
+    "balanced": "",
+    "power-saver": ""
+    }
+  },
+  "wireplumber#source": {
+      "node-type": "Audio/Source",
+      "format": "",
+      "format-muted": "",
+      "tooltip-format": "{format_source}",
+      "on-click": "swayosd-client --input-volume mute-toggle",
+      "on-click-right": "kitty --class=local.wiremix -e wiremix"
+  },
+  "custom/terminal": {
+    "format": "",
+    "tooltip-format": "terminal",
+    "on-click": "kitty --class=float-term"
+  }
+}
+

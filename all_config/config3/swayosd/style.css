@@ -1,0 +1,41 @@
+@import "../../.local/share/themes/matugen/waybar.css";
+
+window#osd {
+  padding: 0px 6px;
+  border: none;
+  border-radius: 0px;
+  background: alpha(@background, 0.8);
+}
+
+image, label {
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+progressbar:disabled, image:disabled {
+	opacity: 0.5;
+}
+
+progressbar {
+	min-height: 6px;
+	border-radius: 999px;
+	background: transparent;
+	border: none;
+}
+
+trough {
+	min-height: inherit;
+	border-radius: inherit;
+	border: none;
+	background: alpha(@secondary, 0.2);
+}
+progress {
+	min-height: inherit;
+	border-radius: inherit;
+	border: none;
+	background: @inverse_primary;;
+}
+
+#container {
+	margin:10px;
+}

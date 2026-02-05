@@ -1,0 +1,98 @@
+@import url("../../.local/share/themes/matugen/waybar.css");
+
+:root {
+  --border-radius: 0px;
+  --cc-bg: transparent;
+  --border: none;
+  --widget-background: alpha(@background, 0.6);
+  --noti-bg-alpha: 0.6;
+
+  --padding: 7.5px;
+}
+
+* {
+  color: @text;
+  font-size: 1rem;
+  font-family: "CaskaydiaMono Nerd Font Mono", "Font Awesome 7 Free",
+  "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands", FontAwesome;
+  transition: 200ms;
+}
+
+.control-center {
+  border-radius: 0;
+  border: none;
+}
+
+.widgets > .widget,
+.widget-mpris > carouselindicatordots,
+.widget-mpris > box > button {
+  background: var(--widget-background);
+  /* Uncomment this to make swaync round again */
+/*  border-radius: var(--border-radius);*/
+  border-radius: 0;
+  padding: 7.5px;
+  border: var(--border);
+}
+
+.control-center-list-placeholder {
+  padding: 7.5px;
+}
+.notification-group {
+  border-radius: 0px;
+  padding: 8px;
+}
+.widget.widget-mpris {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  border: none;
+}
+.widget.widget-mpris > carouselindicatordots {
+  --dots-padding: 4px;
+  padding: var(--dots-padding);
+  padding-left: var(--dots-padding);
+  padding-right: calc(6px + var(--dots-padding));
+  margin: 0;
+  margin-top: var(--padding);
+}
+.widget-mpris > box > button:hover {
+  background: alpha(@background, 1);
+}
+.widget-mpris-player {
+  box-shadow: none;
+  border: none;
+  margin: 0 var(--padding);
+  border-radius: 0;
+}
+.widget-mpris-player:only-child {
+  margin: 0;
+}
+
+.widget.widget-dnd {
+  padding: 4px 15px;
+}
+
+.widget-dnd > switch {
+  background: alpha(@inverse_primary,0.3) 
+  border-radius: 10px;
+  border: 1px;
+  box-shadow: none;
+}
+
+.widget-dnd > switch:hover {
+  background: alpha(@surface_container_high,0.8)
+}
+
+.widget-dnd > switch:checked {
+  background: alpha(@inverse_primary,0.3) 
+}
+
+.widget-dnd > switch slider {
+  background: @secondary; 
+  border-radius: 0px;
+  border: 4px solid alpha(@inverse_primary,0.3);
+}
+
+.widget-dnd > switch:checked slider {
+  background: @inverse_primary;
+}

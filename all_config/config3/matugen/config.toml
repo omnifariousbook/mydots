@@ -1,0 +1,36 @@
+[config.wallpaper]
+command = "awww"
+arguments = ["img", "--transition-type", "center"]
+set = true
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/waybar.css'
+output_path = '~/.local/share/themes/matugen/waybar.css'
+post_hook = 'pkill -SIGUSR2 waybar && swaync-client -rs'
+
+[templates.yazi]
+input_path = '~/.config/matugen/templates/yazi-theme.toml'
+output_path = '~/.config/yazi/theme.toml'
+
+[templates.wlogout]
+input_path = '~/.config/matugen/templates/wlogout.css'
+output_path = '~/.local/share/themes/matugen/wlogout.css'
+
+[templates.vesktop]
+input_path = '~/.config/matugen/templates/midnight-discord.css'
+output_path = '~/.config/Vencord/themes/midnight-discord.css'
+
+[templates.hyprland]
+input_path = '~/.config/matugen/templates/hyprland-colors.conf'
+output_path = '~/.local/share/themes/matugen/hyprland-colors.conf'
+post_hook = 'hyprctl reload'
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk-matugen.css'
+output_path = '~/.config/gtk-3.0/gtk.css'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+
+[templates.pywalfox]
+input_path = '~/.config/matugen/templates/pywalfox-colors.json'
+output_path = '~/.cache/wal/colors.json'
+post_hook = 'pywalfox update'

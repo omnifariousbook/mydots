@@ -1,0 +1,8 @@
+#! /usr/bin/bash
+~/.config/scripts/run_scripts/$(ls ~/.config/scripts/run_scripts | fzf --style full \
+  --preview 'less ~/.config/scripts/run_scripts/{}' \
+  --color 'border:#aaaaaa,label:#cccccc' \
+  --color 'preview-border:#9999cc,preview-label:#ccccff' \
+  --color 'list-border:#669966,list-label:#99cc99' \
+  --color 'input-border:#996666,input-label:#ffcccc' \
+  --color 'header-border:#6699cc,header-label:#99ccff')

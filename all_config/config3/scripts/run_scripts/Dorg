@@ -1,0 +1,34 @@
+#! /usr/bin/python3
+
+#########################################
+# ORGANIZE FILES IN DOWNLOADS DIRECTORY #
+#########################################
+import os
+
+path = "/home/reader/Downloads"
+
+pictures = [".png", ".jpg", ".jpeg"]
+documents = [".docx", "pptx", ".pdf", "txt"]
+videos = [".mp4", ".mov", ".mkv"]
+vpn = [".ovpn"]
+all_ext = pictures + documents + videos
+i = os.listdir(path)
+
+for file in i:
+    if " " in file:
+        file = file.replace(" ", "\\ ")
+    if "&" in file:
+        file = file.replace("&", "\\&")
+    if "(" in file:
+        file = file.replace("(", "\\(")
+    if ")" in file:
+        file = file.replace(")", "\\)")
+    for extension in all_ext:
+        if extension in file and extension in pictures:
+            os.system(f"mv {path}/{file} ~/Pictures")
+        elif extension in file and extension in documents:
+            os.system(f"mv {path}/{file} ~/Documents")
+        elif extension in file and extension in videos:
+            os.system(f"mv {path}/{file} ~/Videos")
+        elif extension in file and extension in vpn:
+            os.system(f"mv {path}/{file} ~/VPN")
